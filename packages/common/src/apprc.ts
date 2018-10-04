@@ -6,8 +6,6 @@ const defaults = <NestjsxConfig>{
   bootstrap: {
     globalsPrefix: 'app',
     exportProviders: true,
-    useOrmPackage: false,
-    ormPackage: null,
     files: {
       modules: ['global-module', 'api-module'],
       providers: ['provider', 'providers', 'service', 'helper', 'gateway'],
@@ -18,6 +16,9 @@ const defaults = <NestjsxConfig>{
       pipes: ['pipe'],
       entities: ['entity'],
     },
+  },
+  packages: {
+    orm: null,
   },
 };
 

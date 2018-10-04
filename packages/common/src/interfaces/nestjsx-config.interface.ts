@@ -3,7 +3,6 @@ export interface NestjsxConfig {
   bootstrap: {
     globalsPrefix: string;
     exportProviders: boolean;
-    ormPackage: OrmPackage;
     files: {
       modules: string[];
       providers: string[];
@@ -14,6 +13,9 @@ export interface NestjsxConfig {
       pipes: string[];
       entities: string[];
     };
+  };
+  packages: {
+    orm: OrmPackage;
   };
 }
 

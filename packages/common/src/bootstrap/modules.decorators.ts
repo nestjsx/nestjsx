@@ -9,11 +9,12 @@ import { getCallerPath, getInjectables, getEntities, getAppInjectables } from '.
  */
 export const Module = (opt: ModuleMetadata = {}): Function => {
   const path = getCallerPath();
-  const { files, exportProviders, ormPackage } = apprc.bootstrap;
+  const { files, exportProviders } = apprc.bootstrap;
+  const { orm } = apprc.packages;
 
   const controllers = opt.controllers ? opt.controllers : getInjectables(path, files.controllers);
   const providers = opt.providers ? opt.providers : getInjectables(path, files.providers);
-  const entities = getEntities(path, files.entities, ormPackage);
+  const entities = getEntities(path, files.entities, orm);
   const imports = opt.imports ? opt.imports : [];
   const exports = opt.exports ? opt.exports : exportProviders ? providers : [];
 

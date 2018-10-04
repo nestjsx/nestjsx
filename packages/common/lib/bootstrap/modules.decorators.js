@@ -9,10 +9,11 @@ const utils_1 = require("./utils");
  */
 exports.Module = (opt = {}) => {
     const path = utils_1.getCallerPath();
-    const { files, exportProviders, ormPackage } = apprc_1.apprc.bootstrap;
+    const { files, exportProviders } = apprc_1.apprc.bootstrap;
+    const { orm } = apprc_1.apprc.packages;
     const controllers = opt.controllers ? opt.controllers : utils_1.getInjectables(path, files.controllers);
     const providers = opt.providers ? opt.providers : utils_1.getInjectables(path, files.providers);
-    const entities = utils_1.getEntities(path, files.entities, ormPackage);
+    const entities = utils_1.getEntities(path, files.entities, orm);
     const imports = opt.imports ? opt.imports : [];
     const exports = opt.exports ? opt.exports : exportProviders ? providers : [];
     return common_1.Module({
