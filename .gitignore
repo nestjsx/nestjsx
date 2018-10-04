@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+yarn-error.log
+npm-debug.log
+
+# IDE
+/.idea
+/.awcache
+/.vscode
+
+# misc
+.DS_Store
+lerna-debug.log
+
+# tests
+/coverage
+/.nyc_output

@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": false,
+    "removeComments": false,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "lib": ["es7"],
+    "sourceMap": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "composite": true,
+    "baseUrl": "./packages",
+    "paths": {
+      "@nestjsx/common/*": ["common/src/*"]
+    }
+  }
+}

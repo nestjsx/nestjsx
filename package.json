@@ -1,0 +1,35 @@
+{
+  "name": "nestjsx",
+  "private": true,
+  "description": "",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "test": "lerna run test",
+    "prepare": "lerna run prepare",
+    "clean": "rimraf packages/**/lib",
+    "pub": "lerna publish"
+  },
+  "dependencies": {
+    "@nestjs/common": "^5.3.9",
+    "@nestjs/core": "^5.3.10",
+    "@nestjs/testing": "^5.3.8",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3"
+  },
+  "devDependencies": {
+    "@types/callsite": "^1.0.30",
+    "@types/glob": "^7.1.1",
+    "@types/lodash.sortby": "^4.7.4",
+    "@types/lodash.values": "^4.3.4",
+    "@types/node": "^10.11.4",
+    "@types/rc": "^0.0.1",
+    "lerna": "^3.4.1",
+    "rimraf": "^2.6.2",
+    "typescript": "^3.1.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
