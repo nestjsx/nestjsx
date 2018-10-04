@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const decorators_1 = require("@nestjs/common/decorators");
-const config_1 = require("../config");
+const common_1 = require("@nestjs/common");
+const apprc_1 = require("../apprc");
 const utils_1 = require("./utils");
 /**
  * Module decorator
@@ -9,12 +9,18 @@ const utils_1 = require("./utils");
  */
 exports.Module = (opt = {}) => {
     const path = utils_1.getCallerPath();
-    const { files, autoExports } = config_1.config;
+    const { files, exportProviders, ormPackage } = apprc_1.apprc.bootstrap;
     const controllers = opt.controllers ? opt.controllers : utils_1.getInjectables(path, files.controllers);
     const providers = opt.providers ? opt.providers : utils_1.getInjectables(path, files.providers);
+    const entities = utils_1.getEntities(path, files.entities, ormPackage);
     const imports = opt.imports ? opt.imports : [];
-    const exports = opt.exports ? opt.exports : autoExports ? providers : [];
-    return decorators_1.Module({ imports, controllers, providers, exports });
+    const exports = opt.exports ? opt.exports : exportProviders ? providers : [];
+    return common_1.Module({
+        imports: entities ? [entities, ...imports] : imports,
+        controllers,
+        providers,
+        exports,
+    });
 };
 /**
  * App root module decorator
@@ -22,19 +28,16 @@ exports.Module = (opt = {}) => {
  */
 exports.AppRootModule = (opt = { imports: [] }) => {
     const path = utils_1.getCallerPath();
-    const { files, appGlobalsPrefix } = config_1.config;
+    const { files, globalsPrefix } = apprc_1.apprc.bootstrap;
     const injectables = [
         ...files.providers,
         ...files.pipes,
         ...files.interceptors,
         ...files.guards,
         ...files.filters,
-    ].map((name) => `${appGlobalsPrefix}-${name}`);
+    ].map((name) => `${globalsPrefix}-${name}`);
     const imports = utils_1.getInjectables(path, files.modules);
     const providers = utils_1.getAppInjectables(path, injectables);
-    return decorators_1.Module({
-        imports: [...imports, ...opt.imports],
-        providers,
-    });
+    return common_1.Module({ imports: [...imports, ...opt.imports], providers });
 };
 //# sourceMappingURL=modules.decorators.js.map

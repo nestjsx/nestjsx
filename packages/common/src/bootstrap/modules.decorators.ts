@@ -1,7 +1,7 @@
-import { Module as NestModule } from '@nestjs/common/decorators';
+import { Module as NestModule } from '@nestjs/common';
 import { ModuleMetadata } from '@nestjs/common/interfaces';
-import { config } from '../config';
-import { getCallerPath, getInjectables, getAppInjectables } from './utils';
+import { apprc } from '../apprc';
+import { getCallerPath, getInjectables, getEntities, getAppInjectables } from './utils';
 
 /**
  * Module decorator
@@ -9,14 +9,20 @@ import { getCallerPath, getInjectables, getAppInjectables } from './utils';
  */
 export const Module = (opt: ModuleMetadata = {}): Function => {
   const path = getCallerPath();
-  const { files, autoExports } = config;
+  const { files, exportProviders, ormPackage } = apprc.bootstrap;
 
   const controllers = opt.controllers ? opt.controllers : getInjectables(path, files.controllers);
   const providers = opt.providers ? opt.providers : getInjectables(path, files.providers);
+  const entities = getEntities(path, files.entities, ormPackage);
   const imports = opt.imports ? opt.imports : [];
-  const exports = opt.exports ? opt.exports : autoExports ? providers : [];
+  const exports = opt.exports ? opt.exports : exportProviders ? providers : [];
 
-  return NestModule({ imports, controllers, providers, exports });
+  return NestModule({
+    imports: entities ? [entities, ...imports] : imports,
+    controllers,
+    providers,
+    exports,
+  });
 };
 
 /**
@@ -25,20 +31,17 @@ export const Module = (opt: ModuleMetadata = {}): Function => {
  */
 export const AppRootModule = (opt: ModuleMetadata = { imports: [] }): Function => {
   const path = getCallerPath();
-  const { files, appGlobalsPrefix } = config;
+  const { files, globalsPrefix } = apprc.bootstrap;
   const injectables = [
     ...files.providers,
     ...files.pipes,
     ...files.interceptors,
     ...files.guards,
     ...files.filters,
-  ].map((name) => `${appGlobalsPrefix}-${name}`);
+  ].map((name) => `${globalsPrefix}-${name}`);
 
   const imports = getInjectables(path, files.modules);
   const providers = getAppInjectables(path, injectables);
 
-  return NestModule({
-    imports: [...imports, ...opt.imports],
-    providers,
-  });
+  return NestModule({ imports: [...imports, ...opt.imports], providers });
 };
