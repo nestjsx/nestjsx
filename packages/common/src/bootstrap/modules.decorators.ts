@@ -14,7 +14,7 @@ export const Module = (opt: ModuleMetadata = {}): Function => {
 
   const controllers = opt.controllers ? opt.controllers : getInjectables(path, files.controllers);
   const providers = opt.providers ? opt.providers : getInjectables(path, files.providers);
-  const entities = getEntities(path, files.entities, orm);
+  const entities = getEntities(path, files.entities, orm.name);
   const imports = opt.imports ? opt.imports : [];
   const exports = opt.exports ? opt.exports : exportProviders ? providers : [];
 

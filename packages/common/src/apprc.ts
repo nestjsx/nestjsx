@@ -18,7 +18,9 @@ const defaults = <NestjsxConfig>{
     },
   },
   packages: {
-    orm: null,
+    orm: {
+      name: null,
+    },
   },
 };
 
