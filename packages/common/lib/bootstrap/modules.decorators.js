@@ -13,7 +13,7 @@ exports.Module = (opt = {}) => {
     const { orm } = apprc_1.apprc.packages;
     const controllers = opt.controllers ? opt.controllers : utils_1.getInjectables(path, files.controllers);
     const providers = opt.providers ? opt.providers : utils_1.getInjectables(path, files.providers);
-    const entities = utils_1.getEntities(path, files.entities, orm);
+    const entities = utils_1.getEntities(path, files.entities, orm.name);
     const imports = opt.imports ? opt.imports : [];
     const exports = opt.exports ? opt.exports : exportProviders ? providers : [];
     return common_1.Module({

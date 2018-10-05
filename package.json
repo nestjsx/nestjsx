@@ -8,6 +8,7 @@
     "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
     "prepare": "lerna run prepare",
+    "preprepare": "yarn clean",
     "clean": "rimraf packages/**/lib",
     "pub": "lerna publish"
   },

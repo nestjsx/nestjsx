@@ -15,7 +15,9 @@ export interface NestjsxConfig {
         };
     };
     packages: {
-        orm: OrmPackage;
+        orm: {
+            name: OrmPackage;
+        };
     };
 }
 export declare enum OrmPackage {

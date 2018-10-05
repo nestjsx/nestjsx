@@ -18,7 +18,9 @@ const defaults = {
         },
     },
     packages: {
-        orm: null,
+        orm: {
+            name: null,
+        },
     },
 };
 exports.apprc = rc(constants_1.CONFIG_NAME, defaults);
