@@ -1,8 +1,8 @@
 import rc = require('rc');
-import { NestjsxConfig, OrmPackage } from './interfaces/nestjsx-config.interface';
-import { CONFIG_NAME } from './constants';
+import { NestjsxRC } from '../interfaces/nestjsx-rc.interface';
+import { RC_NAME } from '../constants';
 
-const defaults = <NestjsxConfig>{
+export const defaults = <NestjsxRC>{
   bootstrap: {
     globalsPrefix: 'app',
     exportProviders: true,
@@ -24,4 +24,4 @@ const defaults = <NestjsxConfig>{
   },
 };
 
-export const apprc = rc(CONFIG_NAME, defaults) as NestjsxConfig;
+export const apprc = rc(RC_NAME, defaults) as NestjsxRC;

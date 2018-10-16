@@ -1,3 +1,3 @@
 export * from './interfaces';
 export * from './bootstrap';
-export * from './apprc';
+export * from './rc';

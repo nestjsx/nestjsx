@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const rc = require("rc");
-const constants_1 = require("./constants");
-const defaults = {
+const constants_1 = require("../constants");
+exports.defaults = {
     bootstrap: {
         globalsPrefix: 'app',
         exportProviders: true,
@@ -23,5 +23,5 @@ const defaults = {
         },
     },
 };
-exports.apprc = rc(constants_1.CONFIG_NAME, defaults);
-//# sourceMappingURL=apprc.js.map
+exports.apprc = rc(constants_1.RC_NAME, exports.defaults);
+//# sourceMappingURL=rc-parser.js.map

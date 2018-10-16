@@ -5,4 +5,4 @@ var OrmPackage;
     OrmPackage["TypeOrm"] = "@nestjs/typeorm";
     OrmPackage["Mongoose"] = "@nestjs/mongoose";
 })(OrmPackage = exports.OrmPackage || (exports.OrmPackage = {}));
-//# sourceMappingURL=nestjsx-config.interface.js.map
+//# sourceMappingURL=nestjsx-rc.interface.js.map

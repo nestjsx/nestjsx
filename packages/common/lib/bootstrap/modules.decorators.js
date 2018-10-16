@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
-const apprc_1 = require("../apprc");
+const rc_1 = require("../rc");
 const utils_1 = require("./utils");
 /**
  * Module decorator
@@ -9,8 +9,8 @@ const utils_1 = require("./utils");
  */
 exports.Module = (opt = {}) => {
     const path = utils_1.getCallerPath();
-    const { files, exportProviders } = apprc_1.apprc.bootstrap;
-    const { orm } = apprc_1.apprc.packages;
+    const { files, exportProviders } = rc_1.apprc.bootstrap;
+    const { orm } = rc_1.apprc.packages;
     const controllers = opt.controllers ? opt.controllers : utils_1.getInjectables(path, files.controllers);
     const providers = opt.providers ? opt.providers : utils_1.getInjectables(path, files.providers);
     const entities = utils_1.getEntities(path, files.entities, orm.name);
@@ -29,7 +29,7 @@ exports.Module = (opt = {}) => {
  */
 exports.AppRootModule = (opt = { imports: [] }) => {
     const path = utils_1.getCallerPath();
-    const { files, globalsPrefix } = apprc_1.apprc.bootstrap;
+    const { files, globalsPrefix } = rc_1.apprc.bootstrap;
     const injectables = [
         ...files.providers,
         ...files.pipes,

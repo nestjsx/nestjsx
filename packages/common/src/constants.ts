@@ -1,1 +1,1 @@
-export const CONFIG_NAME = 'nestjsx';
+export const RC_NAME = 'nest';

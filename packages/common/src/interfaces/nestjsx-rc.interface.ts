@@ -1,4 +1,4 @@
-export interface NestjsxConfig {
+export interface NestjsxRC {
   appName?: string;
   bootstrap: {
     globalsPrefix: string;

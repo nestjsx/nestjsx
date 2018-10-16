@@ -1,6 +1,6 @@
 import { Module as NestModule } from '@nestjs/common';
 import { ModuleMetadata } from '@nestjs/common/interfaces';
-import { apprc } from '../apprc';
+import { apprc } from '../rc';
 import { getCallerPath, getInjectables, getEntities, getAppInjectables } from './utils';
 
 /**

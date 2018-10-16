@@ -5,5 +5,5 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./interfaces"));
 __export(require("./bootstrap"));
-__export(require("./apprc"));
+__export(require("./rc"));
 //# sourceMappingURL=index.js.map
