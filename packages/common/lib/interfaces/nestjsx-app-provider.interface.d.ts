@@ -1,5 +1,5 @@
 import { Provider } from '@nestjs/common';
-export interface NesjsxAppProvider {
+export interface NestjsxAppProvider {
     order: number;
     provider: Provider;
 }

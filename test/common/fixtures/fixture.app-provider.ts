@@ -1,4 +1,4 @@
-import { NesjsxAppProvider } from '../../../packages/common/src/interfaces/nestjsx-app-provider.interface';
+import { NestjsxAppProvider } from '../../../packages/common/src/interfaces/nestjsx-app-provider.interface';
 
 export const AppFixtureProvider = {
   order: 0,
@@ -6,4 +6,4 @@ export const AppFixtureProvider = {
     provide: 'token',
     useValue: 'value',
   },
-} as NesjsxAppProvider;
+} as NestjsxAppProvider;

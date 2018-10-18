@@ -3,7 +3,7 @@ import values = require('lodash.values');
 import sortBy = require('lodash.sortby');
 import * as callsites from 'callsites';
 import * as glob from 'glob';
-import { NesjsxAppProvider, OrmPackage } from '../interfaces';
+import { NestjsxAppProvider, OrmPackage } from '../interfaces';
 
 const isUndefined = (value) => typeof value === 'undefined';
 
@@ -24,7 +24,7 @@ export const getAppInjectables = (path: string, files: string[]) => {
   const imports = getInjectables(path, files);
   const sorted = sortBy(imports, 'order');
 
-  return sorted.map((m: NesjsxAppProvider) => {
+  return sorted.map((m: NestjsxAppProvider) => {
     if (isUndefined(m) || isUndefined(m.order) || isUndefined(m.provider)) {
       throw new Error('App injectable must be NesjsxAppProvider');
     }
