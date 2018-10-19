@@ -1,6 +1,6 @@
 {
   "name": "@nestjsx/common",
-  "description": "",
+  "description": "A set of NestJs decorators, interfaces and configuration for application modules bootstraping",
   "version": "0.3.1",
   "license": "MIT",
   "main": "lib/index.js",
@@ -8,6 +8,28 @@
   "files": [
     "lib"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nestjsx/nestjsx.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nestjsx/nestjsx/issues"
+  },
+  "keywords": [
+    "typescript",
+    "decorators",
+    "config",
+    "typeorm",
+    "mongoose",
+    "nest",
+    "nestjs",
+    "modules",
+    "extensions"
+  ],
+  "author": {
+    "name": "Michael Yali",
+    "email": "mihon4ik@gmail.com"
+  },
   "scripts": {
     "prepare": "tsc -b"
   },
