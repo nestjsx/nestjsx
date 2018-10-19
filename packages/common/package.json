@@ -1,7 +1,7 @@
 {
   "name": "@nestjsx/common",
   "description": "A set of NestJs decorators, interfaces and configuration for application modules bootstraping",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
