@@ -11,7 +11,7 @@
 
 # @nestjsx/common
 
-A set of NestJs decorators, interfaces and configuration for application modules bootstraping.
+A set of NestJs decorators, interfaces and configuration for application modules bootstrapping.
 
 ## Table of Contents
 
