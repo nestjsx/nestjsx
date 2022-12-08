@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@nestjs/common": "^5.3.11",
-    "@nestjs/core": "^5.3.11",
+    "@nestjs/core": "^9.2.1",
     "@nestjs/elasticsearch": "^0.1.2",
     "@nestjs/mongoose": "^5.2.2",
     "@nestjs/testing": "^5.3.11",
